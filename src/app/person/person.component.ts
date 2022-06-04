@@ -55,8 +55,8 @@ export class PersonComponent implements OnInit {
   initPerson(): void {
     this.isLoading = true;
     this.personService.getPersons().subscribe((persons) => {
-      this.list = persons?.results;
-      this.total = persons?.count;
+      this.list = persons;
+      this.total = persons.length;
       this.isLoading = false;
     });
   }
@@ -65,8 +65,8 @@ export class PersonComponent implements OnInit {
     this.isLoading = true;
 
     this.personService.searchPersons(search).subscribe((persons: any) => {
-      this.list = persons?.results;
-      this.total = persons?.count;
+      this.list = persons;
+      this.total = persons.length;
       this.isLoading = false;
     });
   }

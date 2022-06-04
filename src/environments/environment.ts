@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  baseUrl: 'https://swapi.dev/api/people'
+  baseUrl: 'http://localhost:8080/api/person'
 };
 
