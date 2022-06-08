@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {PersonService} from "./shared/person.service";
 import {FormControl} from "@angular/forms";
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-person',
@@ -72,7 +73,7 @@ export class PersonComponent implements OnInit {
   }
 
   valueChanges(): void {
-    this.formQuery.valueChanges.subscribe(value => {
+    this.formQuery.valueChanges.pipe(debounceTime(500)).subscribe(value => {
       if (value && value != '') {
         this.searchPerson(value);
       }else {
